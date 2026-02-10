@@ -3,7 +3,7 @@ import { PdfUploader } from './components/PdfUploader';
 import { CodeViewer } from './components/CodeViewer';
 import { generateCodeFromImage } from './services/geminiService';
 import { GenerationState, OutputFormat } from './types';
-import { Sparkles, ArrowRight, Zap, Code2, Layers, FileCode, FileType } from 'lucide-react';
+import { Sparkles, ArrowRight, Code2, FileCode, FileType } from 'lucide-react';
 
 const App: React.FC = () => {
   const [generationState, setGenerationState] = useState<GenerationState>({ status: 'idle' });
@@ -36,30 +36,30 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0f1117] text-slate-900 dark:text-slate-200 font-sans selection:bg-blue-500/30">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-[#0f1117] text-slate-900 dark:text-slate-200 font-sans selection:bg-blue-500/30">
       
       {/* Header */}
       <header className="border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-[#0f1117]/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-2 rounded-lg shadow-lg shadow-blue-500/20">
-              <Layers className="w-5 h-5 text-white" />
-            </div>
+            <img
+              src="/design-to-code-icon.png"
+              alt="Design to Code"
+              className="h-12 w-auto object-contain"
+            />
             <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
-              PDF to React
+              Design to Code
             </h1>
           </div>
-          <div className="flex items-center space-x-4">
-            <span className="hidden md:flex items-center text-xs font-medium px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400 border border-blue-100 dark:border-blue-900/30">
-              <Zap className="w-3 h-3 mr-1" />
-              Powered by Gemini 3.0 Pro
-            </span>
-            <a href="#" className="text-sm font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">Documentation</a>
-          </div>
+          <img
+            src="/brandstory-logo.png"
+            alt="BRANDSTORY"
+            className="h-12 w-auto object-contain"
+          />
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 h-[calc(100vh-4rem)]">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
           
           {/* Left Column: Upload & Preview */}
@@ -162,6 +162,29 @@ const App: React.FC = () => {
 
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="mt-auto border-t border-slate-200/80 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex flex-col items-center justify-center gap-3 text-center">
+            <p className="text-sm text-slate-500 dark:text-slate-400 tracking-wide">
+              © {new Date().getFullYear()} Design to Code. All rights reserved.
+            </p>
+            <span className="text-slate-400 dark:text-slate-500"></span>
+            <p className="text-sm font-medium text-slate-600 dark:text-slate-300 tracking-tight">
+              Crafted by{' '}
+              <a
+                href="https://brandstory.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors underline underline-offset-2 decoration-slate-300 dark:decoration-slate-600 hover:decoration-blue-500"
+              >
+                BrandStory
+              </a>
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
