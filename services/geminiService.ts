@@ -2,11 +2,12 @@ import { GoogleGenAI } from "@google/genai";
 import { OutputFormat } from "../types";
 
 export const generateCodeFromImage = async (base64Images: string[], format: OutputFormat): Promise<string> => {
-  if (!process.env.API_KEY) {
+  const apiKey = process.env.API_KEY;
+  if (!apiKey) {
     throw new Error("API Key is missing. Please check your environment configuration.");
   }
 
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey });
 
   const systemInstruction = `
     You are an expert Frontend Engineer and UI/UX Designer who processes designs using a strict **7-Stage AI Vision Analysis** protocol before coding.
