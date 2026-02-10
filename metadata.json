@@ -1,0 +1,5 @@
+{
+  "name": "Design to Code",
+  "description": "Upload a UI design PDF and instantly convert it into clean, responsive React + Tailwind code using Gemini 2.5 Flash.",
+  "requestFramePermissions": []
+}
